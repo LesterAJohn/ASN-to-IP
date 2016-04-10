@@ -22,7 +22,7 @@ public class ASNRequest {
     
     
     public static void initial() throws Exception {
-		FileReader indexReader = new FileReader("C:\\Users\\lester.john\\Desktop\\index.txt");
+		FileReader indexReader = new FileReader("C:\\Users\\lester.john\\workspaces\\eclipse\\ASN to IP\\WorkingFiles\\index.txt");
 	    BufferedReader bufferedReader = new BufferedReader(indexReader);
 	    String index=null;
 	    
@@ -35,7 +35,7 @@ public class ASNRequest {
 
     
 	public static void ASNLoad(String pattern) throws IOException {
-		FileReader fileReader = new FileReader("C:\\Users\\lester.john\\Desktop\\data-raw-table.txt");
+		FileReader fileReader = new FileReader("C:\\Users\\lester.john\\workspaces\\eclipse\\ASN to IP\\WorkingFiles\\data-raw-table.txt");
 	    BufferedReader bufferedReader = new BufferedReader(fileReader);
 	    /* ArrayList<String> lines = new ArrayList<String>(); */
 	    String line = null;
@@ -55,7 +55,7 @@ public class ASNRequest {
 	public static void Writer() throws Exception {
 	    Collections.sort(lines, Collator.getInstance());
 	    
-	    FileWriter writer = new FileWriter("C:\\Users\\lester.john\\Desktop\\asn.txt"); 
+	    FileWriter writer = new FileWriter("C:\\Users\\lester.john\\workspaces\\eclipse\\ASN to IP\\WorkingFiles\\asn.txt"); 
 	    for(String str: lines) {
 	    	writer.write(str + "\r\n");
 	    	/* System.out.println(str); */
@@ -69,7 +69,7 @@ public class ASNRequest {
 		String ccstr = "";
 		String str = "";
 		
-		FileReader indexReader = new FileReader("C:\\Users\\lester.john\\Desktop\\asn.txt");
+		FileReader indexReader = new FileReader("C:\\Users\\lester.john\\workspaces\\eclipse\\ASN to IP\\WorkingFiles\\asn.txt");
 	    BufferedReader bufferedReader = new BufferedReader(indexReader);
 
 	    while ((str = bufferedReader.readLine()) != null) {
