@@ -1,0 +1,36 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+publishing {
+
+}
+
+jar {
+}
+
+compileJava{
+	options.fork = true
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+	compile ('org.apache.derby:derbyclient:10.12.1.1')	
+}
+
+
+sourceSets {
+
+}
+test{
+ 	testLogging {
+    }
+}
