@@ -46,17 +46,14 @@ private static int responseCode;
                     new InputStreamReader(con.getInputStream()))) {
                 String inputLine;
                 response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
+                while ((inputLine = in.readLine()) != null)
+					response.append(inputLine);
             }
  
 		// print result
 		// System.out.println(response.toString());
                 
-                // Response
-                String outPut = response.toString();
-                return outPut;
+                return response.toString();
  
 	}
         
@@ -87,14 +84,12 @@ private static int responseCode;
             try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
                 String inputLine;
                 response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                	response.append(inputLine);
-                }
+                while ((inputLine = in.readLine()) != null)
+					response.append(inputLine);
             }
 
             //print result
             System.out.println(response.toString());
-            String outPut = response.toString();
-            return outPut;
+            return response.toString();
 	}
 }

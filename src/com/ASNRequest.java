@@ -12,13 +12,20 @@ import java.util.regex.Pattern;
 public class ASNRequest {
 	
     static ArrayList<String> lines = new ArrayList<String>();
-	private static String response;
-
 	public static void main(String[] args) throws Exception {
-		/* initial(); */
-		/* Writer(); */
-		Webpush();
+		for(int i=0;i<args.length;++i) { 
+			System.out.println(args[i]);
+
+			if(args[i] == "initial")
+				initial();
+				
+			if(args[i] == "Writer") 
+				Writer();
+
+			if(args[i] == "Webpush")
+				Webpush();
 		}
+	}
     
     
     public static void initial() throws Exception {
@@ -26,11 +33,10 @@ public class ASNRequest {
 	    BufferedReader bufferedReader = new BufferedReader(indexReader);
 	    String index=null;
 	    
-	    while ((index = bufferedReader.readLine()) != null) {
-		ASNLoad(index);
-	    /* System.out.println(index); */
-	    }
-	bufferedReader.close();
+	    while ((index = bufferedReader.readLine()) != null)
+			ASNLoad(index);
+
+	    bufferedReader.close();
 	}
 
     
@@ -42,12 +48,11 @@ public class ASNRequest {
 	    
 	    Pattern ASN = Pattern.compile(pattern);
 
-	    while ((line = bufferedReader.readLine()) != null) {
-	    	if(ASN.matcher(line).find() == true) {	
-	        lines.add(line.replace(pattern, ""));
-	        System.out.println(line.replace(pattern, ""));
-	    	}
-	    }
+	    while ((line = bufferedReader.readLine()) != null)
+			if (ASN.matcher(line).find()) {
+				lines.add(line.replace(pattern, ""));
+				System.out.println(line.replace(pattern, ""));
+			}
     bufferedReader.close();
 	}
 	
@@ -56,11 +61,10 @@ public class ASNRequest {
 	    Collections.sort(lines, Collator.getInstance());
 	    
 	    FileWriter writer = new FileWriter("C:\\Users\\lester.john\\workspaces\\eclipse\\ASN to IP\\WorkingFiles\\asn.txt"); 
-	    for(String str: lines) {
-	    	writer.write(str + "\r\n");
-	    	/* System.out.println(str); */
-	    }
-	writer.close();
+	    for(String str: lines)
+			writer.write(str + "\r\n");
+
+	    writer.close();
 	}
 	
 	
@@ -72,9 +76,8 @@ public class ASNRequest {
 		FileReader indexReader = new FileReader("C:\\Users\\lester.john\\workspaces\\eclipse\\ASN to IP\\WorkingFiles\\asn.txt");
 	    BufferedReader bufferedReader = new BufferedReader(indexReader);
 
-	    while ((str = bufferedReader.readLine()) != null) {
-	    ccstr = (ccstr+","+str);
-	    }
+	    while ((str = bufferedReader.readLine()) != null)
+			ccstr = (ccstr + "," + str);
 	System.out.println(ccstr);
 	WebConnect.sendPost("https://my.incapsula.com/api/prov/v1/sites/configure/acl", "api_id=19363&api_key=f63b9db9-6d41-48f8-b744-3a063025e4c5&site_id=1549083&rule_id=api.acl.whitelisted_ips&ips="+ccstr+"\r\n");
 	bufferedReader.close();		
