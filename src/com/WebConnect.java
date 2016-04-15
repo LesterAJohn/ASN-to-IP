@@ -21,7 +21,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class WebConnect {
     
-private static int responseCode;
+static int responseCode;
 
 	// HTTP GET request
 	public static String sendGet(String url) throws Exception {
@@ -38,7 +38,7 @@ private static int responseCode;
 		// add request header
 		con.setRequestProperty("User-Agent", "Mozilla/5.0");
  
-		int responseCode = con.getResponseCode();
+		responseCode = con.getResponseCode();
 		// System.out.println("\nSending 'GET' request to URL : " + url);
 		// System.out.println("Response Code : " + responseCode);
                 StringBuffer response;
