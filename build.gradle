@@ -28,7 +28,11 @@ dependencies {
 
 
 sourceSets {
-
+    main {
+    	java {
+    		srcDir 'src/com'
+    		}
+    }
 }
 test{
  	testLogging {
